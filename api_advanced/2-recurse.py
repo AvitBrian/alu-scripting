@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import requests
 
 def recurse(subreddit, hot_list=[], after=None):
@@ -6,7 +8,7 @@ def recurse(subreddit, hot_list=[], after=None):
         "User-Agent": "Linux:MyRedditApp:1.0 (by /u/Few-Area5580)"
     }
     params = {"after": after} if after else {}
-    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    response = requests.get(url, headers=headers, params=params, timeout=10)
 
     if response.status_code != 200:
         return None
