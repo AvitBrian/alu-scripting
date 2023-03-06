@@ -1,19 +1,22 @@
 #!/usr/bin/python3
-import requests
-
-
-def count_words(subreddit, word_list, after=None, counts={}):
-    """
+"""
     Recursively queries the Reddit API, parses the title of all hot articles, 
     and prints a sorted count of given keywords
     (case-insensitive, delimited by spaces. 
     Javascript should count as javascript, but java should not).
-
     :param subreddit: string, the subreddit to search for
     :param word_list: list of strings, the keywords to count
     :param after: string, the value of the 'after' parameter in the previous API call
     :param count_dict: dictionary, a dictionary to store the counts of each keyword
     :return: None
+"""
+import requests
+
+
+
+def count_words(subreddit, word_list, after=None, counts={}):
+    """
+        Recursively queries the Reddit API and passes the results to a helper function.
     """
     if after is None:
         counts = {}
